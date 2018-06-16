@@ -1,15 +1,19 @@
 package arturhgca.hivemind.monitoring.stats.service
 
+import arturhgca.hivemind.core.container.docker.service.DockerCommandExecutor
 import arturhgca.hivemind.monitoring.stats.model.Stats
 import spock.lang.Shared
 import spock.lang.Specification
 
-class StatsServiceTests extends Specification {
+class StatsServiceTest extends Specification {
     @Shared
     def statsService
+    @Shared
+    def commandExecutor
 
     def setup() {
-        statsService = Mock()
+        commandExecutor = Mock(DockerCommandExecutor)
+        statsService = new StatsService(commandExecutor)
     }
 
     def "should get a Stats object for a given running container"() {
