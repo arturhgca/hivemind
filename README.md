@@ -1,2 +1,2 @@
-# hivemind
-Docker container monitoring and management
+# HiVEMiND
+*Docker container monitoring and management*
